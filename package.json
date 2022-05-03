@@ -12,7 +12,7 @@
   "author":  {
     "name": "Steven Lehrburger",
     "email": "lehrburger@gmail.com"
-  ,
+  },
   "devDependencies": {
     "netlify-cli": "^6.14.7"
   },
