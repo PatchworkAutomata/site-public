@@ -15,14 +15,19 @@ const netlify = {
 const github = {
   clientIdKey: "GITHUB_OAUTH_CLIENT_ID",
   clientSecretKey: "GITHUB_OAUTH_CLIENT_SECRET",
+  orgNameKey: "GITHUB_ORG_NAME",
 
   /* OAuth API endpoints */
   tokenHost: "https://github.com/",
   tokenPath: "https://github.com/login/oauth/access_token",
   authorizePath: "https://github.com/login/oauth/authorize",
 
+  /* Scope of access to request */
+  scope: 'read:org',
+
   /* User API endpoint */
   userApi: "https://api.github.com/user",
+  orgAPI: `https://api.github.com/orgs/PatchworkAutomata/memberships/`,
 };
 
 // https://docs.gitlab.com/ee/api/oauth2.html

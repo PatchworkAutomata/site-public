@@ -20,10 +20,13 @@ async function handler(event) {
   }
 
   let user;
+  let org;
   let authError;
   try {
     let oauth = new OAuth(provider);
     user = await oauth.getUser(authToken);
+    org = await oauth.getOrgMembership(authToken, user.login);
+    console.log(org);
   } catch(e) {
     authError = e;
   }
@@ -33,7 +36,7 @@ async function handler(event) {
     query: event.queryStringParameters,
     functionsDir: "./netlify/functions/",
     config: function(eleventyConfig) {
-      if(user) {
+      if(user && org && (org.role == 'admin' || org.role == 'member')) {
         eleventyConfig.addGlobalData("user", user);
       }
 

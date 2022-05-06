@@ -7,7 +7,6 @@
   <body>
     {% if user %}
       Welcome, {{ user.name }}!
-      {{ user | json }}
       {% render "logout.html" %}
     {% else %}
       {% render "login.html" %}

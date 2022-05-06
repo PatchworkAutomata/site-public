@@ -50,6 +50,7 @@ class OAuth {
 
     cfg.clientId = process.env[cfg.clientIdKey];
     cfg.clientSecret = process.env[cfg.clientSecretKey];
+    cfg.orgName = process.env[cfg.orgNameKey];
 
     if (!cfg.clientId || !cfg.clientSecret) {
       throw new Error(`MISSING REQUIRED ENV VARS. ${cfg.clientIdKey} and ${cfg.clientSecretKey} are required.`)
@@ -76,6 +77,31 @@ class OAuth {
       throw new Error(`Error ${await response.text()}`)
     }
   
+    const data = await response.json()
+    return data
+  }
+
+  async getOrgMembership(token, username) {
+    if(!token) {
+      throw new Error("Missing authorization token.");
+    }
+    if(!username) {
+      throw new Error("Missing username.");
+    }
+
+    const response = await fetch(`${this.config.orgAPI}${username}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      }
+    })
+
+    console.log( "[auth] getOrgMembership response status", response.status );
+    if (response.status !== 200) {
+      throw new Error(`Error ${await response.text()}`)
+    }
+
     const data = await response.json()
     return data
   }
