@@ -3,8 +3,22 @@ publish = "_site"
 command = "npm run build"
 
 [[redirects]]
+from = "/guides/guide-draft/"
+to = "/.netlify/functions/dynamic"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "dynamic"
+
+[[redirects]]
 from = "/"
-to = "/secure/"
+to = "/.netlify/functions/dynamic"
+status = 200
+force = true
+_generated_by_eleventy_serverless = "dynamic"
+
+[[redirects]]
+from = "/"
+to = "/"
 status = 302
 force = true
 

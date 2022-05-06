@@ -5,6 +5,14 @@
     <title>Patchwork Automata</title>
   </head>
   <body>
+    {% if user %}
+      Welcome, {{ user.name }}!
+      {{ user | json }}
+      {% render "logout.html" %}
+    {% else %}
+      {% render "login.html" %}
+    {% endif %}
+
     {{ content }}
   </body>
 </html>
