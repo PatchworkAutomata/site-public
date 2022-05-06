@@ -1,1 +1,5 @@
+.env
 node_modules
+_site
+netlify/functions/dynamic/**
+!netlify/functions/dynamic/index.js
