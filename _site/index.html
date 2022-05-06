@@ -1,5 +1,19 @@
-<p>Exploring options for the future <a href="https://www.patchworkautomata.com/">Patchwork Automata</a> site.</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Patchwork Automata</title>
+  </head>
+  <body>
+    <p>Exploring options for the future <a href="https://www.patchworkautomata.com/">Patchwork Automata</a> site.</p>
 <ul>
 <li><a href="/guides/guide-published/">Published Guide</a> (public)</li>
 <li><a href="/guides/guide-draft/">Draft Guide</a> (private)</li>
 </ul>
+<form action="/.netlify/functions/auth-before">
+  <input type="hidden" name="securePath" value="/secure/">
+  <button type="submit" name="provider" value="github">Login with GitHub</button>
+</form>
+
+  </body>
+</html>
