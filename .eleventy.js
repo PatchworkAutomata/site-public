@@ -7,7 +7,7 @@ module.exports = function (eleventyConfig) {
   });
   return {
     dir: {
-      input: "src",
+      input: "content",
       output: "_site",
     },
     dataTemplateEngine: "liquid",
