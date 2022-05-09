@@ -23,7 +23,7 @@ const github = {
   authorizePath: "https://github.com/login/oauth/authorize",
 
   /* Scope of access to request */
-  scope: 'read:org',
+  scope: 'user:email read:org',
 
   /* User API endpoint */
   userApi: "https://api.github.com/user",
