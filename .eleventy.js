@@ -5,6 +5,7 @@ module.exports = function (eleventyConfig) {
     name: "dynamic",
     functionsDir: "./netlify/functions/",
   });
+  eleventyConfig.setUseGitIgnore(false);
   return {
     dir: {
       input: "content-merged",
