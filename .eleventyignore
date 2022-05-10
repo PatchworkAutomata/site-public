@@ -1,3 +1,4 @@
 netlify
+content-public
 content-private
-content/README.md
+content-merged/README.md
