@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "The main Patchwork Automata website.",
   "scripts": {
-    "preprocess": "rimraf content-merged && cpy . '../content-merged/' --cwd=content-public && cpy . '../content-merged/' --cwd=content-private",
-    "build": "npm run preprocess && npx @11ty/eleventy",
-    "start": "npm run preprocess && npx @11ty/eleventy --serve",
+    "content-merge": "rimraf content-merged && cpy . '../content-merged/' --cwd=content-public && cpy . '../content-merged/' --cwd=content-private",
+    "prepare-toml": "cpy netlify_base.toml . --rename=netlify.toml",
+    "build": "npm run content-merge && npm run prepare-toml && npx @11ty/eleventy",
+    "start": "npm run content-merge && npm run prepare-toml && npx @11ty/eleventy --serve",
     "dev": "netlify dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
