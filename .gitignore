@@ -2,6 +2,5 @@
 node_modules
 content-merged
 _site
-netlify.toml
 netlify/functions/dynamic/**
 !netlify/functions/dynamic/index.js
