@@ -14,6 +14,7 @@ module.exports = function (eleventyConfig) {
       fs.writeFileSync(redirectsFilename, _redirects);
     }
   });
+  eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.setUseGitIgnore(false);
   return {
     dir: {
