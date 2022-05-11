@@ -10,11 +10,12 @@ module.exports = function (eleventyConfig) {
       for (const [key, value] of Object.entries(outputMap)) {
         _redirects += `${key} /.netlify/functions/${name} 200\n`
       }
-      let redirectsFilename = "./_redirects";
+      let redirectsFilename = "./_site/_redirects";
+      fs.mkdirSync("./_site");
       fs.writeFileSync(redirectsFilename, _redirects);
     }
   });
-  eleventyConfig.addPassthroughCopy("_redirects");
+  //eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.setUseGitIgnore(false);
   return {
     dir: {
