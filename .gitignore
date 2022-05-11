@@ -1,6 +1,8 @@
 .env
+.netlify
 node_modules
 content-merged
+_redirects
 _site
 netlify/functions/dynamic/**
 !netlify/functions/dynamic/index.js
