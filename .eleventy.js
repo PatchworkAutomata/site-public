@@ -1,26 +1,31 @@
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 const fs = require("fs");
 
+const functionsDir = "netlify/functions"
+const inputDir = "content-merged";
+const outputDir = "_site";
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
     name: "dynamic",
-    functionsDir: "./netlify/functions/",
+    functionsDir: `./${functionsDir}/`,
     redirects: function(name, outputMap) {
-      let _redirects = "";
+      let redirects = "";
       for (const [key, value] of Object.entries(outputMap)) {
-        _redirects += `${key} /.netlify/functions/${name} 200\n`
+        redirects += `${key} /.${functionsDir}/${name} 200\n`
       }
-      let redirectsFilename = "./_site/_redirects";
-      fs.mkdirSync("./_site");
-      fs.writeFileSync(redirectsFilename, _redirects);
+      let redirectsFilename = `./${outputDir}/_redirects`;
+      if (!fs.existsSync(`./${outputDir}`)) {
+        fs.mkdirSync(`./${outputDir}`);
+      }
+      fs.writeFileSync(redirectsFilename, redirects);
     }
   });
-  //eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.setUseGitIgnore(false);
   return {
     dir: {
-      input: "content-merged",
-      output: "_site",
+      input: inputDir,
+      output: outputDir,
     },
     dataTemplateEngine: "liquid",
     markdownTemplateEngine: "liquid",
