@@ -26,7 +26,6 @@ async function handler(event) {
     let oauth = new OAuth(provider);
     user = await oauth.getUser(authToken);
     org = await oauth.getOrgMembership(authToken, user.login);
-    console.log(org);
   } catch(e) {
     authError = e;
   }

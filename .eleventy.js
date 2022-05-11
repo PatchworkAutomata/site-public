@@ -8,7 +8,7 @@ module.exports = function (eleventyConfig) {
     redirects: function(name, outputMap) {
       let _redirects = "";
       for (const [key, value] of Object.entries(outputMap)) {
-        _redirects += `${key} /.netlify/functions/${name}\n`
+        _redirects += `${key} /.netlify/functions/${name} 200\n`
       }
       let redirectsFilename = "./_redirects";
       fs.writeFileSync(redirectsFilename, _redirects);
