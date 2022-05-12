@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "The main Patchwork Automata website.",
   "scripts": {
-    "preprocess": "rimraf content-merged && cpy . '../content-merged/' --cwd=content-public && cpy . '../content-merged/' --cwd=content-private",
-    "build": "npm run preprocess && npx @11ty/eleventy",
-    "start": "npm run preprocess && npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy",
+    "start": "npx @11ty/eleventy --serve",
     "dev": "netlify dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,8 +19,9 @@
   "dependencies": {
     "@11ty/eleventy": "^1.0.1",
     "cookie": "^0.4.1",
-    "cpy-cli": "^4.1.0",
+    "cpy": "^9.0.1",
     "dotenv": "^10.0.0",
+    "fs-extra": "^10.1.0",
     "node-fetch": "^2.3.0",
     "rimraf": "^3.0.2",
     "simple-oauth2": "^4.2.0"
