@@ -22,6 +22,7 @@
     "cpy": "^9.0.1",
     "dotenv": "^10.0.0",
     "fs-extra": "^10.1.0",
+    "klaw-sync": "^6.0.0",
     "node-fetch": "^2.3.0",
     "simple-oauth2": "^4.2.0"
   }

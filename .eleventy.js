@@ -1,12 +1,11 @@
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 const fs = require("fs-extra");
-
-// var rsyncjsCJS = require('rsyncjs')
-// var deasync = require('deasync')
-// var rsync = deasync(rsyncjsCJS.async)
+const klawSync = require('klaw-sync')
 
 const functionsDir = "netlify/functions"
-const inputDir = "content-merged";
+const inputDirPublic = "content-public";
+const inputDirPrivate = "content-private";
+const inputDirMerged = "content-merged";
 const outputDir = "_site";
 
 module.exports = function (eleventyConfig) {
@@ -27,42 +26,31 @@ module.exports = function (eleventyConfig) {
     }
   });
   eleventyConfig.setUseGitIgnore(false);
-
-  // eleventyConfig.setWatchThrottleWaitTime(5000);
-  eleventyConfig.addWatchTarget("content-private");
-  eleventyConfig.addWatchTarget("content-public");
+  eleventyConfig.addWatchTarget(inputDirPrivate);
+  eleventyConfig.addWatchTarget(inputDirPublic);
   eleventyConfig.on('eleventy.before', async () => {
-    console.log("");
-    console.log("");
-    console.log("eleventy.before");
-    const filterFunc = (src, dest) => {
-      console.log(`filterFunc`);
-      if (!fs.existsSync(dest)) {
-        console.log(`  no ${dest} so early return true`);
-        return true;
+    for (const contentDir of [inputDirPublic, inputDirPrivate]) {
+      const contentFiles = klawSync(contentDir, {nodir: true})
+      for (const index in contentFiles) {
+        const localPath = contentFiles[index]["path"].replace(`${process.cwd()}/${contentDir}/`, '');
+        fs.copySync(`${contentDir}/${localPath}`,
+                    `${inputDirMerged}/${localPath}`,
+                    { filter: (src, dest) => {
+                      //TODO if needed, I can make this more efficient by pre-fetching the fs.Stats
+                      if (!fs.existsSync(src)) {
+                        return false;
+                      } else if (!fs.existsSync(dest)) {
+                        return true;
+                      } else {
+                        return fs.statSync(src).mtimeMs > fs.statSync(dest).mtimeMs;
+                      }
+                    } });
       }
-      let fileHasChanged = Buffer.compare(fs.readFileSync(src), fs.readFileSync(dest)) != 0;
-      console.log(`  return ${fileHasChanged}`);
-      return fileHasChanged;
     }
-    const copySyncOptions = { preserveTimestamps: true, filter: filterFunc};
-    fs.copySync('content-public/index.md',
-                `${inputDir}/index.md`,
-                copySyncOptions);
-        // rsync(srcDir, targetDir, {
-    //   exclude: 'node_modules'
-    // })
-    //fs.copySync('content-private', `${inputDir}-serverless`);
-    //fs.copySync('content-public', `${inputDir}-serverless`);
   });
-  // eleventyConfig.on('eleventy.after', async () => {
-  //   console.log("eleventy.after");
-  //   //fs.rmSync(inputDir, { recursive: true });
-  //   //console.log('removed!')
-  // });
   return {
     dir: {
-      input: inputDir,
+      input: inputDirMerged,
       output: outputDir,
     },
     dataTemplateEngine: "liquid",
