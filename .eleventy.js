@@ -9,22 +9,9 @@ const inputDirMerged = "content-merged";
 const outputDir = "_site";
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
-    name: "dynamic",
-    functionsDir: `./${functionsDir}/`,
-    //inputDir: `${inputDir}/-serverless`,
-    redirects: function(name, outputMap) {
-      let redirects = "";
-      for (const [key, value] of Object.entries(outputMap)) {
-        redirects += `${key} /.${functionsDir}/${name} 200\n`
-      }
-      let redirectsFilename = `./${outputDir}/_redirects`;
-      if (!fs.existsSync(`./${outputDir}`)) {
-        fs.mkdirSync(`./${outputDir}`);
-      }
-      fs.writeFileSync(redirectsFilename, redirects);
-    }
-  });
+  if (!fs.existsSync(inputDirMerged)){
+      fs.mkdirSync(inputDirMerged);
+  }
   eleventyConfig.setUseGitIgnore(false);
   eleventyConfig.addWatchTarget(inputDirPrivate);
   eleventyConfig.addWatchTarget(inputDirPublic);
@@ -46,6 +33,22 @@ module.exports = function (eleventyConfig) {
                       }
                     } });
       }
+    }
+  });
+  eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
+    name: "dynamic",
+    functionsDir: `./${functionsDir}/`,
+    //inputDir: "inputDirMerged",
+    redirects: function(name, outputMap) {
+      let redirects = "";
+      for (const [key, value] of Object.entries(outputMap)) {
+        redirects += `${key} /.${functionsDir}/${name} 200\n`
+      }
+      let redirectsFilename = `./${outputDir}/_redirects`;
+      if (!fs.existsSync(`./${outputDir}`)) {
+        fs.mkdirSync(`./${outputDir}`);
+      }
+      fs.writeFileSync(redirectsFilename, redirects);
     }
   });
   return {
