@@ -1,6 +1,10 @@
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 const fs = require("fs-extra");
 
+// var rsyncjsCJS = require('rsyncjs')
+// var deasync = require('deasync')
+// var rsync = deasync(rsyncjsCJS.async)
+
 const functionsDir = "netlify/functions"
 const inputDir = "content-merged";
 const outputDir = "_site";
@@ -31,17 +35,31 @@ module.exports = function (eleventyConfig) {
     console.log("");
     console.log("");
     console.log("eleventy.before");
-    fs.copySync('content-private', inputDir);
-    fs.copySync('content-public', inputDir);
+    const filterFunc = (src, dest) => {
+      console.log(`filterFunc`);
+      if (!fs.existsSync(dest)) {
+        console.log(`  no ${dest} so early return true`);
+        return true;
+      }
+      let fileHasChanged = Buffer.compare(fs.readFileSync(src), fs.readFileSync(dest)) != 0;
+      console.log(`  return ${fileHasChanged}`);
+      return fileHasChanged;
+    }
+    const copySyncOptions = { preserveTimestamps: true, filter: filterFunc};
+    fs.copySync('content-public/index.md',
+                `${inputDir}/index.md`,
+                copySyncOptions);
+        // rsync(srcDir, targetDir, {
+    //   exclude: 'node_modules'
+    // })
     //fs.copySync('content-private', `${inputDir}-serverless`);
     //fs.copySync('content-public', `${inputDir}-serverless`);
-    console.log('merged!')
   });
-  eleventyConfig.on('eleventy.after', async () => {
-    console.log("eleventy.after");
-    //fs.rmSync(inputDir, { recursive: true });
-    //console.log('removed!')
-  });
+  // eleventyConfig.on('eleventy.after', async () => {
+  //   console.log("eleventy.after");
+  //   //fs.rmSync(inputDir, { recursive: true });
+  //   //console.log('removed!')
+  // });
   return {
     dir: {
       input: inputDir,
