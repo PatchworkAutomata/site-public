@@ -17,7 +17,7 @@
     "netlify-cli": "^6.15.0"
   },
   "dependencies": {
-    "@11ty/eleventy": "^1.0.1",
+    "@11ty/eleventy": "git@github.com:PatchworkAutomata/eleventy.git#serverless-dir-bug",
     "cookie": "^0.4.1",
     "cpy": "^9.0.1",
     "dotenv": "^10.0.0",
