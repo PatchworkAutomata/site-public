@@ -5,21 +5,23 @@ const klawSync = require('klaw-sync')
 const functionsDir = "netlify/functions"
 const inputDirPublic = "content-public";
 const inputDirPrivate = "content-private";
-const inputDirMerged = "content-merged";
+const inputDirMerged = "src";
 const outputDir = "_site";
 
 module.exports = function (eleventyConfig) {
-  if (!fs.existsSync(inputDirMerged)){
-      fs.mkdirSync(inputDirMerged);
-  }
   eleventyConfig.setUseGitIgnore(false);
   eleventyConfig.addWatchTarget(inputDirPrivate);
   eleventyConfig.addWatchTarget(inputDirPublic);
   eleventyConfig.on('eleventy.before', async () => {
+    const cwd = process.cwd();
+    if (cwd.includes(functionsDir)) {
+      return;  // We are in the Serverless Function and don't have inputDirPublic and
+               // inputDirPrivate, but fortuantely inputDirMerged is already set up.
+    }
     for (const contentDir of [inputDirPublic, inputDirPrivate]) {
       const contentFiles = klawSync(contentDir, {nodir: true})
       for (const index in contentFiles) {
-        const localPath = contentFiles[index]["path"].replace(`${process.cwd()}/${contentDir}/`, '');
+        const localPath = contentFiles[index]["path"].replace(`${cwd}/${contentDir}/`, '');
         fs.copySync(`${contentDir}/${localPath}`,
                     `${inputDirMerged}/${localPath}`,
                     { filter: (src, dest) => {
@@ -38,7 +40,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
     name: "dynamic",
     functionsDir: `./${functionsDir}/`,
-    //inputDir: "inputDirMerged",
     redirects: function(name, outputMap) {
       let redirects = "";
       for (const [key, value] of Object.entries(outputMap)) {
