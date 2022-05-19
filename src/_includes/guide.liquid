@@ -1,0 +1,32 @@
+---
+layout: layouts/base.liquid
+---
+
+{% renderTemplate "liquid, md", sections %}
+{% if user-stories %}
+  ### You should read this if...
+  {% for story in user-stories %}
+   - {{ story }}
+  {% endfor %}
+{% endif %}
+{% endrenderTemplate %}
+
+{% renderTemplate "liquid, md", sections %}
+{% if overview %}
+  ### Overview
+  {{ overview }}
+{% endif %}
+{% endrenderTemplate %}
+
+<h3>Instructions</h3>
+
+{{ content }}
+
+{% renderTemplate "liquid, md", sections %}
+{% if changelog %}
+  ### You should read this if...
+  {% for change in changelog %}
+   - {{ change.date }}: {{ change.update }}
+  {% endfor %}
+{% endif %}
+{% endrenderTemplate %}

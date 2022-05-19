@@ -1,4 +1,5 @@
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const fs = require("fs-extra");
 const klawSync = require('klaw-sync')
 
@@ -52,6 +53,7 @@ module.exports = function (eleventyConfig) {
       fs.writeFileSync(redirectsFilename, redirects);
     }
   });
+  eleventyConfig.addPlugin(EleventyRenderPlugin);
   return {
     dir: {
       input: inputDirMerged,

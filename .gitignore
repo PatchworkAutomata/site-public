@@ -1,7 +1,7 @@
 .env
 .netlify
 node_modules
-src
+src/**/*.md
 !src/_includes
 _site
 netlify/functions/dynamic/**
