@@ -23,6 +23,22 @@ layout: layouts/base.liquid
 {{ content }}
 
 {% renderTemplate "liquid, md", sections %}
+{% if monetization %}
+  ### Could this be a business?
+  {{ monetization }}
+{% endif %}
+{% endrenderTemplate %}
+
+{% renderTemplate "liquid, md", sections %}
+{% if next-steps %}
+  ### Next Steps
+  {% for step in next-steps %}
+   - {{ step }}
+  {% endfor %}
+{% endif %}
+{% endrenderTemplate %}
+
+{% renderTemplate "liquid, md", sections %}
 {% if changelog %}
   ### You should read this if...
   {% for change in changelog %}
