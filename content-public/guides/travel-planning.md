@@ -13,7 +13,7 @@ sections:
   overview: |
     Spreadsheets are great for organizing infromation, but they are not great for referencing that information on your phone with luggage in tow while rushing to catch a Shinkansen. Fortunately, tabular data is relatively easy to transform into other formats, such as a calendar that you can view natively on whatever device you choose, with whatever information is applicable.
 
-    In this guide, we'll follow a simple template to create the columns for your trip's [Google Sheet](tools/google-sheets/), and then using [Google Apps Script](tools/google-apps-script), we'll publish an [.ics file](/tools/ics-files/) that you can subscribe to in the calendar app of your choice. We'll conclude with a couple of examples from real trips.
+    In this guide, we'll follow a simple template to create the columns for your trip's [Google Sheet](/tools/google-sheets/), and then using [Google Apps Script](/tools/google-apps-script), we'll publish an [.ics file](/tools/ics-files/) that you can subscribe to in the calendar app of your choice. We'll conclude with a couple of examples from real trips.
   monetization: |
     Probably! It could be viable B2C, perhaps with a per-trip fee. One challenge is Google's (justified!) rules and warnings about third-party app authorizations, so you might need to use a different online spreadsheet application – maybe there are even open-source or white-labeled options.
 

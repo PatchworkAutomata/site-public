@@ -40,7 +40,7 @@ layout: layouts/base.liquid
 
 {% renderTemplate "liquid, md", sections %}
 {% if changelog %}
-  ### You should read this if...
+  ### Update History
   {% for change in changelog %}
    - {{ change.date }}: {{ change.update }}
   {% endfor %}
