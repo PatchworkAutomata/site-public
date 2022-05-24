@@ -1,5 +1,5 @@
 ---
-layout: common.html
+layout: layouts/base.liquid
 permalink:
   dynamic: "/guides/guide-draft/"
 secure:

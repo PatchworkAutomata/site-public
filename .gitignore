@@ -2,6 +2,7 @@
 .netlify
 node_modules
 src/**/*.md
+src/**/*.liquid
 !src/_includes
 _site
 netlify/functions/dynamic/**

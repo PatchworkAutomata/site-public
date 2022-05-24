@@ -54,6 +54,14 @@ module.exports = function (eleventyConfig) {
     }
   });
   eleventyConfig.addPlugin(EleventyRenderPlugin);
+  // eleventyConfig.addCollection("guides", function(collectionApi) {
+  //   const l = collectionApi.getFilteredByGlob(["guide.liquid"]); TODO USE FULL PATH HERE
+  //   //console.log(l);
+  //   return [];
+  // });
+  eleventyConfig.addLiquidFilter("wtf", function(value) {
+    return JSON.stringify(value);
+  });
   return {
     dir: {
       input: inputDirMerged,

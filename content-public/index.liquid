@@ -1,0 +1,21 @@
+---
+layout: layouts/base.liquid
+permalink:
+  dynamic: "/"
+---
+
+{{ collections | log }}
+
+{% renderTemplate "liquid, md", collections %}
+Exploring options for the future [Patchwork Automata](https://www.patchworkautomata.com/) site.
+
+ - [Draft Guide](/guides/guide-draft/) (private)
+{% for guide in guides -%}
+ - {{ guide.data | log }}
+{% endfor -%}
+ - [Draft Guide](/guides/guide-draft/) (private)
+{% if user -%}
+ - [Draft Guide](/guides/guide-draft/) (private)
+ - [Draft Guide from Submodule](/guides/guide-draft-submodule/) (private)
+{% endif -%}
+{% endrenderTemplate %}
