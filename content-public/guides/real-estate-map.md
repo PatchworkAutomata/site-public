@@ -30,3 +30,4 @@ sections:
  - [ ] Write up instructions for using MyMaps (colors, icons, groupings, etc) on web and mobile
  - [ ] Get screenshots of sample map
  - [ ] Clean up Python script for filtering Transbay bus data
+ - [ ] Compare to RedFin's Climate Risk section, added in version 420.0.0.7909 of the iOS app on 5/24/2022. It uses [Climate Check](https://climatecheck.com/) and [First Street Foundation's Flood Factor](https://firststreet.org/risk-factor/flood-factor/), and there are more details [here](https://www.redfin.com/guides/climate-change-housing-impact/methodology), but this doesn't sound like a replacement for this guide.
