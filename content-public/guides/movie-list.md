@@ -18,8 +18,7 @@ sections:
   next-steps:
     - Expand/generalize this guide for other types of content like books, TV shows, music, and maybe places.
     - Add some concept of the "context" for which a movie might be well-suited – it's unclear where best to do this right now.
-    - If/when [Airtatable Interfaces](https://www.airtable.com/guides/collaborate/getting-started-with-interface-designer) has matured enough, create a [card-based UI for choosing a movie](http://lehrblogger.com/2014/02/25/pick-a-card-any-card/). This may need another table of Searches, which would keep track of which movies have been considered and disuqalified for a particular potential viewing.
-    
+    - If/when [Airtatable Interfaces](https://www.airtable.com/guides/collaborate/getting-started-with-interface-designer) has matured enough, create a [card-based UI for choosing a movie](http://lehrblogger.com/2014/02/25/pick-a-card-any-card/). This may need another table of Searches, which would keep track of which movies have been considered and disuqalified for a particular potential viewing. I'd need to use a Form to create a new Search (because that is [not yet easily possible in Interfaces](https://community.airtable.com/t/introducing-interface-designer/44191/52)), and then would select that Search with a button in one view in the interace. This selection would somehow update the filters on a record view (perhaps using a dedicated table to track the "active" search). Each record in this view would have Buttons corresponding to the different "swipe" actions that updated fields as needed. TBD if it's worth somehow supporting multiple users for a single Search, but it's better to add that complexity later.
   changelog:
     -
       date: 2022-05-23
