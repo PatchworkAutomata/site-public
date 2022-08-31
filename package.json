@@ -6,6 +6,7 @@
     "build": "npx @11ty/eleventy",
     "start": "npx @11ty/eleventy --serve",
     "dev": "netlify dev",
+    "debug": "DEBUG=Eleventy* eleventy && netlify dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
