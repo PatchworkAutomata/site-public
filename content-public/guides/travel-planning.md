@@ -35,7 +35,7 @@ sections:
 
 #### Example Trips (WIP)
 
-You'll notice that these example trips have _every minute accounted for_. Most people would consider this a rather extreme style of trip planning, but it's worth considering:
+You'll notice that these example trips have _every minute accounted for_. Some might view this a rather extreme style of trip planning, but it's worth considering:
  - The trip feels like a roller coaster at an amusement park customized (by you!) to your tastes. All you have to do is buckle in and enjoy the ride.
  - If you want to deviate from the schedule, you can! You planned the trip, after all, but with more knowledge about opportunity costs you can make faster decisions.
  - If sleep or unstructured time are important to you, then you can build those into the schedule and make sure to get the rest you wanted. This can be especailly helpful when gradually adjusting to a new time zone.
