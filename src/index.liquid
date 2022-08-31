@@ -2,18 +2,10 @@
 layout: layouts/base.liquid
 ---
 
-{{ collections | log }}
+Exploring options for the future <a href="https://www.patchworkautomata.com/" target="new"
+>Patchwork Automata</a> site.
 
-{% renderTemplate "liquid, md", collections %}
-Exploring options for the future [Patchwork Automata](https://www.patchworkautomata.com/) site.
-
- - [Draft Guide](/guides/guide-draft/) (private)
-{% for guide in guides -%}
- - {{ guide.data | log }}
-{% endfor -%}
- - [Draft Guide](/guides/guide-draft/) (private)
-{% if user -%}
- - [Draft Guide](/guides/guide-draft/) (private)
- - [Draft Guide from Submodule](/guides/guide-draft-submodule/) (private)
-{% endif -%}
-{% endrenderTemplate %}
+<h2>Guides</h2>
+<ul>{% for guide in collections.guides -%}
+  <li><a href="{{ guide.data.permalink }}">{{ guide.data.title }}</a></li>
+{% endfor -%}</ul>
