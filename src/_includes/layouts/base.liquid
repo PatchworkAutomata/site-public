@@ -11,13 +11,6 @@ title: Patchwork Automata
   </head>
   <body>
     <h1>{{ title }}</h1>
-    {% if user %}
-      Welcome, {{ user.name }}!
-      {% render "logout.html" %}
-    {% else %}
-      {% render "login.html" %}
-    {% endif %}
-
     {{ content }}
   </body>
 </html>
