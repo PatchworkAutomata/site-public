@@ -1,5 +1,6 @@
-const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
-const { EleventyRenderPlugin } = require("@11ty/eleventy");
+const { EleventyServerlessBundlerPlugin,
+        EleventyRenderPlugin,
+        EleventyEdgePlugin } = require("@11ty/eleventy");
 const fs = require("fs-extra");
 const klawSync = require('klaw-sync')
 
@@ -38,6 +39,7 @@ module.exports = function (eleventyConfig) {
       }
     }
   });
+  eleventyConfig.addPlugin(EleventyEdgePlugin);
   eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
     name: "dynamic",
     functionsDir: `./${functionsDir}/`,
@@ -54,11 +56,13 @@ module.exports = function (eleventyConfig) {
     }
   });
   eleventyConfig.addPlugin(EleventyRenderPlugin);
-  // eleventyConfig.addCollection("guides", function(collectionApi) {
-  //   const l = collectionApi.getFilteredByGlob(["guide.liquid"]); TODO USE FULL PATH HERE
-  //   //console.log(l);
-  //   return [];
-  // });
+  eleventyConfig.addCollection("testingAll", function(collectionApi) {
+    //const l = collectionApi.getAll();
+    const l = collectionApi.getFilteredByGlob(["*/guides/*.md"]);// TODO USE FULL PATH HERE
+    console.log("what");
+    console.log(l);
+    return l;
+  });
   eleventyConfig.addLiquidFilter("wtf", function(value) {
     return JSON.stringify(value);
   });

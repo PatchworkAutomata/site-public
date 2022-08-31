@@ -2,7 +2,6 @@
 layout: guide.liquid
 permalink: "guides/movie-list/"
 title: Picking the Perfect Movie
-tags: guides
 sections:
   user-stories:
     - You like movies and want to make faster, better choices about what to watch.

@@ -1,0 +1,19 @@
+---
+layout: layouts/base.liquid
+permalink:
+  dynamic: "/"
+---
+
+<p>Exploring options for the future <a href="https://www.patchworkautomata.com/">Patchwork Automata</a> site.</p>
+
+<ul>
+  {% for page in collections.testingAll -%}
+  {{ page.data | log }}
+  <li><a href="">{{ page.data.title }}</a></li>
+  {% endfor -%}
+  <li><a href="/guides/guide-draft/">Draft Guide</a> (private)</li>
+  {% if user -%}
+  <li><a href="/guides/guide-draft/">Draft Guide</a> (private)</li>
+  <li><a href="/guides/guide-draft-submodule/">Draft Guide from Submodule</a> (private)</li>
+  {% endif -%}
+</ul>

@@ -2,6 +2,7 @@
 layout: guide.liquid
 permalink: "guides/real-estate-map/"
 title: Finding the Perfect Property
+tags: testing
 sections:
   user-stories:
     - You're buying a house and want to efficiently evaluate real estate listings against several location-based criteria.
