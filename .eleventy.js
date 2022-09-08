@@ -1,6 +1,8 @@
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPassthroughCopy("src/css");
+
   eleventyConfig.addPlugin(EleventyRenderPlugin);
 
   eleventyConfig.addCollection("guides", function(collectionApi) {
