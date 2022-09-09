@@ -1,14 +1,13 @@
 ---
 layout: layouts/base.liquid
 ---
-
 <h2>Welcome</h2>
 <p>Patchwork Automata is a collection of DIY software guides for improving your life. By stitching together bits of functionality from disparate sources into elegant hacks, you can address use cases left unsolved by the broader market for apps and services. The current guides cover a variety of domains, but we hope you find at least some of them useful or become inspired to create your own.</p>
 
 <p>Because you'll be assembling these solutions yourself, the end results are more customizable for your needs than an application managed by someone else. They also have better longevity, as they are not dependent on the good fortune of a startup or the turbulent roadmap of a large company. Finally, they protect your privacy by storing your information beyond the reach of advertisers and data brokers.</p>
 
-<p>Common components include Airtable apps, Google Apps Script, and the Scriptable iOS app, as well as open standards like iCalendar URLs, CardDAV, and KML files. Most of the code is in JavaScript, but it's so simple that knowledge of any programming language will suffice.</p>
-
-<p>By becoming a Member, you'll gain access to a community of tinkerers and be supporting the development of these tools and others. <a href="/join">Please join us!</a></p>
+<p>By becoming a Member, you'll gain access to a community of tinkerers and support the development of these guides and others. <a href="/join">Please join us!</a></p>
 
 {% renderFile "./src/_includes/snippets/guide-list.liquid", collections %}
+
+{% renderFile "./src/_includes/snippets/trick-list.liquid", collections %}

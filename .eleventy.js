@@ -8,6 +8,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("guides", function(collectionApi) {
     return collectionApi.getFilteredByGlob("*/guides/*.md");
   });
+  eleventyConfig.addCollection("tricks", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("*/tricks/*.md");
+  });
   eleventyConfig.addCollection("tools", function(collectionApi) {
     return collectionApi.getFilteredByGlob("*/tools/*.md");
   });
