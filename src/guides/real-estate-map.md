@@ -1,6 +1,6 @@
 ---
 layout: layouts/guide.liquid
-permalink: "guides/real-estate-map/"
+permalink: "/guides/real-estate-map/"
 title: Finding the Perfect Property
 sections:
   user-stories:

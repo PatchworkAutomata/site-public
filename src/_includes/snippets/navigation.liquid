@@ -1,0 +1,12 @@
+
+<ul>
+  <li><a href="/join">Become a Member</a></li>
+  <li><a href="/">Home/About</a></li>
+  <li><a href="/guides">Guides</a></li>
+  <li><a href="https://github.com/PatchworkAutomata/website" target="_blank">GitHub</a></li>
+  <li><a href=""></a>Search</li>
+</ul>
+<h2>Tools</h2>
+<ul>{% for tool in tools -%}
+  <li><a href="{{ tool.data.permalink }}">{{ tool.data.title }}</a></li>
+{% endfor -%}</ul>

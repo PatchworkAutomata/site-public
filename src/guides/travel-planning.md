@@ -1,6 +1,6 @@
 ---
 layout: layouts/guide.liquid
-permalink: "guides/travel-planning/"
+permalink: "/guides/travel-planning/"
 title: Planning the Perfect Trip
 sections:
   user-stories:
