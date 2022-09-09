@@ -1,5 +1,5 @@
 ---
-layout: guide.liquid
+layout: layouts/guide.liquid
 permalink: "guides/real-estate-map/"
 title: Finding the Perfect Property
 sections:

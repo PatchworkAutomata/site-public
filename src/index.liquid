@@ -2,10 +2,13 @@
 layout: layouts/base.liquid
 ---
 
-Exploring options for the future <a href="https://www.patchworkautomata.com/" target="new"
->Patchwork Automata</a> site.
+<h2>Welcome</h2>
+<p>Patchwork Automata is a collection of DIY software guides for improving your life. By stitching together bits of functionality from disparate sources into elegant hacks, you can address use cases left unsolved by the broader market for apps and services. The current guides cover a variety of domains, but we hope you find at least some of them useful or become inspired to create your own.</p>
 
-<h2>Guides</h2>
-<ul>{% for guide in collections.guides -%}
-  <li><a href="{{ guide.data.permalink }}">{{ guide.data.title }}</a></li>
-{% endfor -%}</ul>
+<p>Because you'll be assembling these solutions yourself, the end results are more customizable for your needs than an application managed by someone else. They also have better longevity, as they are not dependent on the good fortune of a startup or the turbulent roadmap of a large company. Finally, they protect your privacy by storing your information beyond the reach of advertisers and data brokers.</p>
+
+<p>Common components include Airtable apps, Google Apps Script, and the Scriptable iOS app, as well as open standards like iCalendar URLs, CardDAV, and KML files. Most of the code is in JavaScript, but it's so simple that knowledge of any programming language will suffice.</p>
+
+<p>By becoming a Member, you'll gain access to a community of tinkerers and be supporting the development of these tools and others. <a href="/join">Please join us!</a></p>
+
+{% renderFile "./src/_includes/snippets/guide-list.liquid", collections %}

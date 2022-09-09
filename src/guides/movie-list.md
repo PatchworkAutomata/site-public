@@ -1,5 +1,5 @@
 ---
-layout: guide.liquid
+layout: layouts/guide.liquid
 permalink: "guides/movie-list/"
 title: Picking the Perfect Movie
 tags: guides

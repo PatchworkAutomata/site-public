@@ -1,5 +1,5 @@
 ---
-layout: guide.liquid
+layout: layouts/guide.liquid
 permalink: "guides/travel-planning/"
 title: Planning the Perfect Trip
 sections:
