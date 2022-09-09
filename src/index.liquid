@@ -8,6 +8,12 @@ layout: layouts/base.liquid
 
 <p>By becoming a Member, you'll gain access to a community of tinkerers and support the development of these guides and others. <a href="/join">Please join us!</a></p>
 
-{% renderFile "./src/_includes/snippets/guide-list.liquid", collections %}
+<h2>Guides</h2>
+<ul>{% for guide in collections.publishedGuides -%}
+  <li><a href="{{ guide.data.permalink }}">{{ guide.data.title }}</a>{% if guide.data.blurb %}: {{ guide.data.blurb }}{% endif %}</li>
+{% endfor -%}</ul>
 
-{% renderFile "./src/_includes/snippets/trick-list.liquid", collections %}
+<h2>Tricks</h2>
+<ul>{% for trick in collections.publishedTricks -%}
+  <li><a href="{{ trick.data.permalink }}">{{ trick.data.title }}</a></li>
+{% endfor -%}</ul>

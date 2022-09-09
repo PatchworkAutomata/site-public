@@ -2,6 +2,8 @@
 layout: layouts/guide.liquid
 permalink: "/guides/travel-planning/"
 title: Planning the Perfect Trip
+status: published
+blurb: Plan your trip in a spreadsheet, and then use it to generate a calendar for convenient access on your phone.
 sections:
   user-stories:
     - You love to travel and don't want to waste time managing logistics or making decisions while you're on a trip.

@@ -1,0 +1,14 @@
+---
+layout: layouts/base.liquid
+title: Drafts
+---
+
+<h2>Guides</h2>
+<ul>{% for guide in collections.draftGuides -%}
+  <li><a href="{{ guide.data.permalink }}">{{ guide.data.title }}</a>{% if guide.data.blurb %}: {{ guide.data.blurb }}{% endif %}</li>
+{% endfor -%}</ul>
+
+<h2>Tricks</h2>
+<ul>{% for trick in collections.draftTricks -%}
+  <li><a href="{{ trick.data.permalink }}">{{ trick.data.title }}</a></li>
+{% endfor -%}</ul>

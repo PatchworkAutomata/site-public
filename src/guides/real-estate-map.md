@@ -2,6 +2,8 @@
 layout: layouts/guide.liquid
 permalink: "/guides/real-estate-map/"
 title: Finding the Perfect Property
+status: published
+blurb: Create custom layers in Google My Maps to quickly evaluate houses against criteria like transportation access and earthquake risk.
 sections:
   user-stories:
     - You're buying a house and want to efficiently evaluate real estate listings against several location-based criteria.
@@ -22,6 +24,8 @@ sections:
       date: 2022-05-23
       update: First draft.
 ---
+
+https://www.google.com/maps/d/u/0/edit?mid=119asYB57a_6vcSHrYBdJEFbRyPNozHjA&ll=37.84575911873918%2C-122.39851657032754&z=10
 
 #### TODO
 
