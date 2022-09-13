@@ -20,6 +20,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("compareItemStatus", function(item, status) {
     return "status" in item.data && item.data["status"] === status;
   });
+  eleventyConfig.addShortcode("checkItemTags", function(item, tag) {
+    console.log(item.data.tags)
+    return  "tags" in item.data && item.data.tags.includes(tag);
+  });
+
 
 
   return {
