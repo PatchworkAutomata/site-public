@@ -16,16 +16,13 @@ module.exports = function (eleventyConfig) {
     return collectionApi.getFilteredByGlob("*/tools/*.md");
   });
 
-  // Shortcodes
-  eleventyConfig.addShortcode("compareItemStatus", function(item, status) {
-    return "status" in item.data && item.data["status"] === status;
+  // Filters
+  eleventyConfig.addFilter("filterItemsByStatus", function(items, status) {
+    return items && items.filter(item => "status" in item.data && item.data["status"] === status);
   });
-  eleventyConfig.addShortcode("checkItemTags", function(item, tag) {
-    console.log(item.data.tags)
-    return  "tags" in item.data && item.data.tags.includes(tag);
+  eleventyConfig.addFilter("filterItemsByTag", function(items, tag) {
+    return items && items.filter(item => item.data.tags && item.data.tags.includes(tag));
   });
-
-
 
   return {
     dir: {

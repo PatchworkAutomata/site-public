@@ -4,24 +4,18 @@ layout: layouts/base.liquid
 <h2>Tool: {{ title }}</h2>
 {{ content }}
 
-<h3>Related Guides</h3>
-<ul>{% for guide in collections.guides -%}
-  {% capture remain %}{% compareItemStatus guide statusForFilter %}{% endcapture %}
-  {% if remain == "true" %}
-    {% capture remain %}{% checkItemTags guide tag %}{% endcapture %}
-    {% if remain == "true" %}
-      <li><a href="{{ guide.data.permalink }}">{{ guide.data.title }}</a>{% if guide.data.blurb %}: {{ guide.data.blurb }}{% endif %}</li>
-    {% endif %}
-  {% endif %}
-{% endfor -%}</ul>
+{% assign guides = collections.guides | filterItemsByTag: tag | filterItemsByStatus: statusForFilter %}
+{% if guides.length > 0 %}
+  <h3>Related Guides</h3>
+  <ul>{% for item in guides -%}
+    <li><a href="{{ item.data.permalink }}">{{ item.data.title }}</a>{% if item.data.blurb %}: {{ item.data.blurb }}{% endif %}</li>
+  {% endfor -%}</ul>
+{% endif %}
 
-<h3>Related Tricks</h3>
-<ul>{% for trick in collections.tricks -%}
-  {% capture remain %}{% compareItemStatus trick statusForFilter %}{% endcapture %}
-  {% if remain == "true" %}
-    {% capture remain %}{% checkItemTags trick tag %}{% endcapture %}
-    {% if remain == "true" %}
-      <li><a href="{{ trick.data.permalink }}">{{ trick.data.title }}</a>{% if trick.data.blurb %}: {{ trick.data.blurb }}{% endif %}</li>
-    {% endif %}
-  {% endif %}
-{% endfor -%}</ul>
+{% assign tricks = collections.tricks | filterItemsByTag: tag | filterItemsByStatus: statusForFilter %}
+{% if tricks.length > 0 %}
+  <h3>Related Tricks</h3>
+  <ul>{% for item in tricks -%}
+    <li><a href="{{ item.data.permalink }}">{{ item.data.title }}</a>{% if item.data.blurb %}: {{ item.data.blurb }}{% endif %}</li>
+  {% endfor -%}</ul>
+{% endif %}

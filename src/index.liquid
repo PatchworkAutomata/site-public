@@ -8,19 +8,18 @@ layout: layouts/base.liquid
 
 <p>By becoming a Member, you'll gain access to a community of tinkerers and support the development of these guides and others. <a href="/join">Please join us!</a></p>
 
-<h2>Guides</h2>
+{% assign guides = collections.guides | filterItemsByStatus: statusForFilter %}
+{% if guides.length %}
+  <h3>Guides</h3>
+  <ul>{% for item in guides -%}
+    <li><a href="{{ item.data.permalink }}">{{ item.data.title }}</a>{% if item.data.blurb %}: {{ item.data.blurb }}{% endif %}</li>
+  {% endfor -%}</ul>
+{% endif %}
 
-<ul>{% for guide in collections.guides -%}
-  {% capture remain %}{% compareItemStatus guide statusForFilter %}{% endcapture %}
-  {% if remain == "true" %}
-    <li><a href="{{ guide.data.permalink }}">{{ guide.data.title }}</a>{% if guide.data.blurb %}: {{ guide.data.blurb }}{% endif %}</li>
-  {% endif %}
-{% endfor -%}</ul>
-
-<h2>Tricks</h2>
-<ul>{% for trick in collections.tricks -%}
-  {% capture remain %}{% compareItemStatus trick statusForFilter %}{% endcapture %}
-  {% if remain == "true" %}
-    <li><a href="{{ trick.data.permalink }}">{{ trick.data.title }}</a></li>
-  {% endif %}
-{% endfor -%}</ul>
+{% assign tricks = collections.tricks | filterItemsByStatus: statusForFilter %}
+{% if tricks.length %}
+  <h3>Tricks</h3>
+  <ul>{% for item in tricks -%}
+    <li><a href="{{ item.data.permalink }}">{{ item.data.title }}</a>{% if item.data.blurb %}: {{ item.data.blurb }}{% endif %}</li>
+  {% endfor -%}</ul>
+{% endif %}
