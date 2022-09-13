@@ -24,8 +24,8 @@ statusForFilter: published
            {{ content }}
          </div>
          <div class="col-sm-3">
-           {% assign temp = collections %}
-           {% renderFile "./src/_includes/snippets/navigation.liquid", temp %}
+           {{ collections.tools | log }}
+           {% renderFile "./src/_includes/snippets/navigation.liquid", collections %}
          </div>
        </div>
      </div>
