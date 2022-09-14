@@ -24,8 +24,7 @@ statusForFilter: published
            {{ content }}
          </div>
          <div class="col-sm-3">
-           {{ collections.tools | log }}
-           {% renderFile "./src/_includes/snippets/navigation.liquid", collections %}
+           {% include "snippets/navigation" %}
          </div>
        </div>
      </div>
