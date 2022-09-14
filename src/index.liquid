@@ -9,17 +9,7 @@ layout: layouts/base.liquid
 <p>By becoming a Member, you'll gain access to a community of tinkerers and support the development of these guides and others. <a href="/join">Please join us!</a></p>
 
 {% assign guides = collections.guides | filterItemsByStatus: statusForFilter %}
-{% if guides.length %}
-  <h3>Guides</h3>
-  <ul>{% for item in guides -%}
-    <li><a href="{{ item.data.permalink }}">{{ item.data.title }}</a>{% if item.data.blurb %}: {{ item.data.blurb }}{% endif %}</li>
-  {% endfor -%}</ul>
-{% endif %}
+{% include "snippets/item_list", name: "Guides", list: guides %}
 
 {% assign tricks = collections.tricks | filterItemsByStatus: statusForFilter %}
-{% if tricks.length %}
-  <h3>Tricks</h3>
-  <ul>{% for item in tricks -%}
-    <li><a href="{{ item.data.permalink }}">{{ item.data.title }}</a>{% if item.data.blurb %}: {{ item.data.blurb }}{% endif %}</li>
-  {% endfor -%}</ul>
-{% endif %}
+{% include "snippets/item_list", name: "Tricks", list: tricks %}
