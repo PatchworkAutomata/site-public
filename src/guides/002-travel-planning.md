@@ -1,7 +1,8 @@
 ---
 layout: layouts/guide.liquid
-permalink: "/guides/travel-planning/"
+permalink: "/guides/002-travel-planning/"
 title: Planning the Perfect Trip
+number: "002"
 status: published
 blurb: Plan your trip in a spreadsheet, and then use it to generate a calendar for convenient access on your phone.
 sections:

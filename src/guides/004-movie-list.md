@@ -1,7 +1,8 @@
 ---
 layout: layouts/guide.liquid
-permalink: "/guides/movie-list/"
+permalink: "/guides/004-movie-list/"
 title: Picking the Perfect Movie
+number: "004"
 status: published
 blurb: Make better, faster decisions about what movies to watch with custom metadata, sorting, and filtering.
 sections:

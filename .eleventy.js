@@ -7,13 +7,27 @@ module.exports = function (eleventyConfig) {
 
   // Collections
   eleventyConfig.addCollection("guides", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("*/guides/*.md");
+    return collectionApi.getFilteredByGlob("*/guides/*.md").sort(function(a, b) {
+      return parseInt(a.data.number) - parseInt(b.data.number);
+    });
   });
   eleventyConfig.addCollection("tricks", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("*/tricks/*.md");
+    return collectionApi.getFilteredByGlob("*/tricks/*.md").sort(function(a, b) {
+      return parseInt(a.data.number) - parseInt(b.data.number);
+    });
   });
   eleventyConfig.addCollection("tools", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("*/tools/*.md");
+    return collectionApi.getFilteredByGlob("*/tools/*.md").sort(function(a, b) {
+      const aTitle = a.data.title.toLowerCase();
+      const bTitle = b.data.title.toLowerCase();
+      if (aTitle < bTitle) {
+        return -1;
+      }
+      if (aTitle > bTitle) {
+        return 1;
+      }
+      return 0;
+    });
   });
 
   // Filters

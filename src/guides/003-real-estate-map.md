@@ -1,7 +1,8 @@
 ---
 layout: layouts/guide.liquid
-permalink: "/guides/real-estate-map/"
+permalink: "/guides/003-real-estate-map/"
 title: Finding the Perfect Property
+number: "003"
 status: published
 blurb: Create custom layers in Google My Maps to quickly evaluate houses against criteria like transportation access and earthquake risk.
 sections:

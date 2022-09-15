@@ -1,6 +1,6 @@
 {% if list.length > 0 %}
   <h3>{{ name }}</h3>
   <ul>{% for item in list -%}
-    <li><a href="{{ item.data.permalink }}">{{ item.data.title }}</a>{% if item.data.blurb %}: {{ item.data.blurb }}{% endif %}</li>
+    <li><a href="{{ item.data.permalink }}">#{{ item.data.number }} {{ item.data.title }}</a>{% if item.data.blurb %}: {{ item.data.blurb }}{% endif %}</li>
   {% endfor -%}</ul>
 {% endif %}
