@@ -4,4 +4,4 @@ permalink: "/tools/google-apps-script/"
 title: Google Apps Script
 tag: Google Apps Script
 ---
-https://developers.google.com/apps-script
+[Google Apps Script](https://developers.google.com/apps-script)
