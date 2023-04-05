@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
 module.exports = function (eleventyConfig) {
@@ -36,6 +37,13 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addFilter("filterItemsByTag", function(items, tag) {
     return items && items.filter(item => item.data.tags && item.data.tags.includes(tag));
+  });
+
+  const stripeMode = "TEST"
+  eleventyConfig.addGlobalData("env", {
+    STRIPE_TABLE_ID: process.env[`STRIPE_TABLE_ID_${stripeMode}`],
+    STRIPE_TABLE_KEY: process.env[`STRIPE_TABLE_KEY_${stripeMode}`],
+    STRIPE_MANAGE_URL: process.env[`STRIPE_MANAGE_URL_${stripeMode}`]
   });
 
   return {
