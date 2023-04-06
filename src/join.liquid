@@ -4,8 +4,8 @@ layout: layouts/base.liquid
 <h2> Become a Member</h2>
 
 <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-<stripe-pricing-table pricing-table-id="{{ env.STRIPE_TABLE_ID }}"
-publishable-key="{{ env.STRIPE_TABLE_KEY }}">
+<stripe-pricing-table pricing-table-id="{{ stripeEnv.STRIPE_TABLE_ID }}"
+publishable-key="{{ stripeEnv.STRIPE_TABLE_KEY }}">
 </stripe-pricing-table>
 
-Already have a subscription? <a href="{{ env.STRIPE_MANAGE_URL }}" target=_blank>Manage it through Stripe</a>.
+Already have a subscription? <a href="{{ stripeEnv.STRIPE_MANAGE_URL }}" target=_blank>Manage it through Stripe</a>.
