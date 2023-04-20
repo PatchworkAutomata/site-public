@@ -15,7 +15,7 @@
     "email": "lehrburger@gmail.com"
   },
   "devDependencies": {
-    "netlify-cli": "^2.71.0"
+    "netlify-cli": "^14.1.0"
   },
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
