@@ -1,6 +1,6 @@
 {
   "name": "patchwork-automata-website",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The main Patchwork Automata website.",
   "scripts": {
     "build": "npx @11ty/eleventy",
