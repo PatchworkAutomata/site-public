@@ -1,11 +1,15 @@
 ---
 layout: layouts/base.liquid
 ---
-<h2> Become a Member</h2>
+<h2>{% if stripeEnv.STRIPE_MODE_IS_TEST %}TEST MODE {% endif %}Become a Member</h2>
 
 <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
 <stripe-pricing-table pricing-table-id="{{ stripeEnv.STRIPE_TABLE_ID }}"
 publishable-key="{{ stripeEnv.STRIPE_TABLE_KEY }}">
 </stripe-pricing-table>
 
-Already have a subscription? <a href="{{ stripeEnv.STRIPE_MANAGE_URL }}" target=_blank>Manage it through Stripe</a>.
+<p>TODO write community guidelines</p>
+
+<p>GitHub and Discord accounts are required to participate in the Patchwork Automata community.</p>
+
+<p>Already have a subscription? <a href="{{ stripeEnv.STRIPE_MANAGE_URL }}" target=_blank>Manage it through Stripe</a>.</p>

@@ -41,6 +41,7 @@ module.exports = function (eleventyConfig) {
 
   const stripeMode = "TEST"
   eleventyConfig.addGlobalData("stripeEnv", {
+    STRIPE_MODE_IS_TEST: true,
     STRIPE_TABLE_ID: process.env[`STRIPE_TABLE_ID_${stripeMode}`],
     STRIPE_TABLE_KEY: process.env[`STRIPE_TABLE_KEY_${stripeMode}`],
     STRIPE_MANAGE_URL: process.env[`STRIPE_MANAGE_URL_${stripeMode}`]
