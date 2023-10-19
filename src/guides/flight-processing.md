@@ -9,7 +9,15 @@ tags: Airtable
 ---
 https://airtable.com/appyhCBZo9DdKFYSQ/tblnTTeiI1NGTS5ub/viwdtElUpUIOhCxxN?blocks=hide
 
+- Minimize errors from data entry
 - Sharing via email to family
 - Publishing to calendar
-- TODO Flighty?
-- Minimize errors from data entry
+  - Copying to shared calendar if desired
+- Flighty
+  - Can just fwd emails to them
+  - Why not use their calendar sync?
+    - Might be a viable alternative, but it's third-party and not free
+    - I can't create custom formats for event data
+    - Will it create one event for multiple travelers? TODO test this
+- TripIt
+  - Also third-party
