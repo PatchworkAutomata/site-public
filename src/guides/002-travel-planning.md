@@ -23,6 +23,7 @@ sections:
     Alternatively, it could be viable as a SaaS app for travel agents or tour operators.
   next-steps:
     - Consider using Airtable instead of Google Sheets and Google Apps Script. Airtable _almost_ makes this trivial with a [calendar view](https://support.airtable.com/hc/en-us/articles/216945218-Guide-to-calendar-view) that is [shared via a link](https://support.airtable.com/hc/en-us/articles/205752117), but unfortunately they currently do not allow you to specify the `location`, `description`, or other `VEVENT` properties. Please feel free to contact [support@airtable.com](mailto:support@airtable.com) to request this enhancement.
+    - Research open source calendar hosting software. They probably store events in some sort of database, and perhaps it's cleaner to build a simple CRUD API directly on top of those tables. There's something about generating the VEVENTs myself that feels inelegant and brittle.
   changelog:
     -
       date: 2022-05-20
