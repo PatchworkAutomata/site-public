@@ -24,8 +24,8 @@ sections:
   next-steps:
     - Consider using Airtable instead of Google Sheets and Google Apps Script. Airtable _almost_ makes this trivial with a [calendar view](https://support.airtable.com/hc/en-us/articles/216945218-Guide-to-calendar-view) that is [shared via a link](https://support.airtable.com/hc/en-us/articles/205752117), but unfortunately they currently do not allow you to specify the `location`, `description`, or other `VEVENT` properties. Please feel free to contact [support@airtable.com](mailto:support@airtable.com) to request this enhancement.
     - Research open source calendar hosting software. They probably store events in some sort of database, and perhaps it's cleaner to build a simple CRUD API directly on top of those tables. There's something about generating the VEVENTs myself that feels inelegant and brittle.
+    - Consider using the spreadsheet or database as a CalDAV client, rather than as a server. This might be simpler to build and run, since it wouldn't need robust hosting. It also might be self-contained enough of a project that I could find a freelancer to do it on Upwork/etc. (This thought is a potentially big improvement in project direction.)
   changelog:
-    -
       date: 2022-05-20
       update: First draft.
 ---
