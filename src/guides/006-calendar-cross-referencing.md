@@ -22,3 +22,5 @@ https://airtable.com/appgpXqXdFFUGB41y/tblCUI7ETDT4kTORN/viwycasGxkbLOWiVe?block
     - 👨‍👩‍👧👨‍👧👩‍👧👱🏻‍♂️👩🏻👧🏼
     - programmatically determined if necessary, or pull out the appropriate character from a single select field
     - could also use for Flights, but it's nice to be explicit and have the names for the seat numbers
+  - alternatively, maybe fewer calendars would be better
+    - one calendar (determined automatically) for each combination of attendees, with a different color, so it was easy to see who was where
